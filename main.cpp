@@ -2,6 +2,7 @@
 #define UNICODE
 #endif
 
+#include <cmath>
 #include <thread>
 #include <chrono>
 #include <windows.h>
