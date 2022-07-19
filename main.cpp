@@ -14,10 +14,10 @@
 #define __WNDCLASS_NAME "MY_WNDCLASS"
 
 #define __WINDOW_NAME "Win32 Drawing Window"
-#define WINDOW_X_POS 50
-#define WINDOW_Y_POS 50
-#define WINDOW_WIDTH 720
-#define WINDOW_HEIGHT 360
+#define __WINDOW_X_POS 50
+#define __WINDOW_Y_POS 50
+#define __WINDOW_WIDTH 1000
+#define __WINDOW_HEIGHT 500
 
 LPCWSTR WNDCLASS_NAME = TEXT(__WNDCLASS_NAME);
 LPCWSTR WINDOW_NAME = TEXT(__WINDOW_NAME);
@@ -144,10 +144,10 @@ void createMainWindow(void)
 {
   DWORD windowStyle = (WS_CAPTION | WS_VISIBLE | WS_SYSMENU | WS_OVERLAPPED);
   RECT rectangle = {
-    .left = WINDOW_X_POS,
-    .top = WINDOW_Y_POS,
-    .right = WINDOW_X_POS + WINDOW_WIDTH,
-    .bottom = WINDOW_Y_POS + WINDOW_HEIGHT
+    .left = __WINDOW_X_POS,
+    .top = __WINDOW_Y_POS,
+    .right = __WINDOW_X_POS + __WINDOW_WIDTH,
+    .bottom = __WINDOW_Y_POS + __WINDOW_HEIGHT
   };
   AdjustWindowRect(&rectangle, windowStyle, FALSE);
   
