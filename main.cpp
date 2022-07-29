@@ -185,12 +185,6 @@ void registerWndClass(void)
   return;
 }
 
-void unregisterWndClass(void)
-{
-  UnregisterClass(WNDCLASS_NAME, hRuntimeInstance);
-  return;
-}
-
 void initialize(void)
 {
   runtimeStatus = RUNTIME_STATUS_DRAW;
@@ -212,7 +206,7 @@ void terminate(void)
 {
   glDeinit();
   DestroyWindow(hWindow);
-  unregisterWndClass();
+  UnregisterClass(WNDCLASS_NAME, hRuntimeInstance);
   return;
 }
 
