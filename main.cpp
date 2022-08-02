@@ -110,13 +110,11 @@ void runtimeProcedure(void)
 
 void glInit(void)
 {
-  HDC *pHDC = &hDeviceContext;
-  HGLRC *pHRC = &hRenderingContext;
   PIXELFORMATDESCRIPTOR pfd;
   int pixelFormat;
   
   ZeroMemory(&pfd, sizeof(PIXELFORMATDESCRIPTOR));
-  *pHDC = GetDC(hWindow);
+  hDeviceContext = GetDC(hWindow);
   pfd.nSize = sizeof(PIXELFORMATDESCRIPTOR);
   pfd.nVersion = 1;
   pfd.dwFlags = (PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER);
@@ -126,7 +124,7 @@ void glInit(void)
   pfd.cDepthBits = 16;
   pixelFormat = ChoosePixelFormat(hDeviceContext, &pfd);
   SetPixelFormat(hDeviceContext, pixelFormat, &pfd);
-  *pHRC = wglCreateContext(hDeviceContext);
+  hRenderingContext = wglCreateContext(hDeviceContext);
   wglMakeCurrent(hDeviceContext, hRenderingContext);
   
   return;
